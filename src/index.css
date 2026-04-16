@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-slate-900 border border-slate-800 rounded-xl;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-slate-600 hover:shadow-lg hover:shadow-black/30 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-sky-600 hover:bg-sky-500 text-white font-medium text-sm px-4 py-2 rounded-lg transition-colors duration-150;
+  }
+
+  .btn-ghost {
+    @apply text-slate-400 hover:text-slate-100 hover:bg-slate-800 text-sm px-3 py-2 rounded-lg transition-all duration-150;
+  }
+
+  .badge-risk-low {
+    @apply bg-emerald-900/40 text-emerald-400 border border-emerald-700/40 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+
+  .badge-risk-medium {
+    @apply bg-amber-900/40 text-amber-400 border border-amber-700/40 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+
+  .badge-risk-high {
+    @apply bg-red-900/40 text-red-400 border border-red-700/40 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+
+  .badge-risk-none {
+    @apply bg-slate-800 text-slate-400 border border-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer select-none;
+  }
+
+  .nav-item-active {
+    @apply nav-item bg-sky-600/15 text-sky-400 border border-sky-600/20;
+  }
+
+  .nav-item-inactive {
+    @apply nav-item text-slate-400 hover:text-slate-100 hover:bg-slate-800;
+  }
+
+  .stat-card {
+    @apply card p-4 flex flex-col gap-1.5;
+  }
+
+  .panel-tab {
+    @apply flex-1 flex items-center justify-center gap-1.5 py-3 text-xs font-semibold uppercase tracking-wider transition-all duration-150 border-b-2 cursor-pointer;
+  }
+
+  .panel-tab-active {
+    @apply panel-tab text-sky-400 border-sky-500 bg-sky-950/30;
+  }
+
+  .panel-tab-inactive {
+    @apply panel-tab text-slate-500 border-transparent hover:text-slate-300 hover:border-slate-600;
+  }
+
+  .field-row {
+    @apply flex items-start justify-between py-2.5 border-b border-slate-800 last:border-0 gap-3;
+  }
+
+  .section-title {
+    @apply flex items-center gap-2 mb-3 pb-2 border-b border-slate-800;
+  }
+}
+
+@layer utilities {
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+
+  .glass {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out both;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.25s ease-out both;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.2s ease-out both;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2.5s ease-in-out infinite;
+}
+
+/* Hotspot glow */
+.hotspot-glow-red    { box-shadow: 0 0 0 2px rgba(239,68,68,0.3), 0 0 12px rgba(239,68,68,0.2); }
+.hotspot-glow-amber  { box-shadow: 0 0 0 2px rgba(245,158,11,0.3), 0 0 12px rgba(245,158,11,0.2); }
+.hotspot-glow-green  { box-shadow: 0 0 0 2px rgba(16,185,129,0.3), 0 0 12px rgba(16,185,129,0.2); }
+.hotspot-glow-sky    { box-shadow: 0 0 0 2px rgba(14,165,233,0.3), 0 0 12px rgba(14,165,233,0.2); }
